@@ -11,10 +11,15 @@
     </div>
     <form id="formPost">
         <label for="titlePost">Titulo do Post</label>
-        <input type="text" name="titlePost" id="titlePost">
+        <input type="text" name="titlePost" id="titlePost" required>
+        <div class="validationText">
+            <span>Escreva um Título para o envio do Post</span>
+        </div>
         <label for="contentPost">Conteúdo do Post</label>
-        <textarea name="contentPost" id="contentPost"></textarea>
-
+        <textarea name="contentPost" id="contentPost"></textarea required>
+        <div class="validationText">
+            <span>Coloque um Conteúdo para envio do Post</span>
+        </div>
         <input type="submit" id="btnSubmit" value="Envir Post">
     </form>
 
