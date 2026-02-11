@@ -7,11 +7,12 @@ const contentRender = document.querySelector(".contentRender")
 
 formPost.addEventListener("submit", (e) =>{
     e.preventDefault()
-    enviarDados(comuicacaoApi(titlePost.value, contentPost.value))
-    renderizarConteudo(titlePost.value, contentPost.value)
+    sendData(comunicationApi(titlePost.value, contentPost.value))
+    renderPost(titlePost.value, contentPost.value)
+    validationMsgs(titlePost.value, contentPost.value)
 })
 
-function comuicacaoApi(titlePost, contentPost){
+function comunicationApi(titlePost, contentPost){
         const apiPost = fetch("https://jsonplaceholder.typicode.com/posts", { 
         method: "POST", 
         headers: {
@@ -26,7 +27,7 @@ function comuicacaoApi(titlePost, contentPost){
     return apiPost
 }
 
-function enviarDados(apiPost){
+function sendData(apiPost){
     apiPost.then(response =>{
         if(!response.ok){
             throw Error("Falha na requisição da API")
@@ -38,7 +39,25 @@ function enviarDados(apiPost){
     })
 }
 
-function renderizarConteudo(titlePost, contentPost){
+function renderPost(titlePost, contentPost){
     titleRender.textContent = titlePost
     contentRender.textContent = contentPost
 }
+
+function validationMsgs(titlePost, contentPost){
+    const valitationTitle = document.querySelector(".validationText--title");
+    const valitationContent = document.querySelector(".validationText--content");
+    if(titlePost === ""){
+        valitationTitle.classList.add("showValidation")
+    }else{
+        valitationTitle.classList.remove("showValidation")
+    }
+
+     if(contentPost === ""){
+        valitationContent.classList.add("showValidation")
+    }else{
+        valitationContent.classList.remove("showValidation")
+    }
+}
+
+
