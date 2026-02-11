@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostPage</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
@@ -12,12 +13,12 @@
     <form id="formPost">
         <label for="titlePost">Titulo do Post</label>
         <input type="text" name="titlePost" id="titlePost" required>
-        <div class="validationText">
+        <div class="validationText--title">
             <span>Escreva um Título para o envio do Post</span>
         </div>
         <label for="contentPost">Conteúdo do Post</label>
-        <textarea name="contentPost" id="contentPost"></textarea required>
-        <div class="validationText">
+        <textarea name="contentPost" id="contentPost" required></textarea>
+        <div class="validationText--content">
             <span>Coloque um Conteúdo para envio do Post</span>
         </div>
         <input type="submit" id="btnSubmit" value="Envir Post">
